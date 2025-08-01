@@ -1,0 +1,121 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fdf6f0;
+  color: #2c2c2c;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* This provides side spacing on small screens */
+  box-sizing: border-box;
+}
+
+.login-box {
+  background-color: #fff0e6;
+  padding: 50px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 20px;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"],
+.signup-btn {
+  width: 100%; /* Make all form controls full width */
+  box-sizing: border-box;
+}
+
+.login-box p {
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: #5a5a5a;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #e0cfcf;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #d94f4f;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.options a {
+  text-decoration: none;
+  color: #d94f4f;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #d94f4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup-btn:hover {
+  background-color: #c44242;
+  transform: translateY(-2px);
+}
+
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  gap: 10px;
+  font-size: 14px;
+  background-color: #fff;
+  margin: 20px 0;
+  transition: background-color 0.2s;
+}
+
+.google-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.signup-link {
+  font-size: 13px;
+  color: #333;
+}
+
+.signup-link a {
+  color: #d94f4f;
+  text-decoration: none;
+  font-weight: bold;
+}

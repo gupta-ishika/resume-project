@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fdf6f0;
+  color: #2c2c2c;
+}
+
+/* Container */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Signup Box */
+.signup-box {
+  background-color: #fff0e6;
+  padding: 60px 50px; /*changes*/
+  max-width: 525px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Headings */
+.signup-box h2 {
+  margin-bottom: 6px;
+  font-size: 26px;
+  color: #2c2c2c;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #5a5a5a;
+}
+
+/* Form Group for Alignment */
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Input Fields */
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e0cfcf;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.signup-box input:focus {
+  outline: none;
+  border-color: #d94f4f;
+}
+
+/* Button */
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #d94f4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup-btn:hover {
+  background-color: #c44242;
+  transform: translateY(-2px);
+}
+
+/* Login Link */
+.login-link {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #333;
+}
+
+.login-link a {
+  color: #4d648d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
