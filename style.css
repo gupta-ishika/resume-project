@@ -5,201 +5,235 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f5f7fa;
-    /* background: #4d648d61; */
     margin: 0;
     padding: 0;
 }
 
 #form-section {
-    /* Form Section */
-    max-width: 1100px;
+    max-width: 1050px;
     margin: 40px auto;
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding-bottom: 30px;
+    border-radius: 10px;
+    padding: 25px 30px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
 }
 
-.add-button{
-    padding: 10px 20px;
-    margin: 10px 30px;
-    background-color: #283655;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s ease;
-}
-
-.add-button button:hover {
-    background-color: #f67280;
-    transform: scale(1.05);
-}
-
-.heading-form {
-    background: linear-gradient(to right, #283655, #4d648d);
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 15px 30px;
-    letter-spacing: 1px;
-    border-left: 8px solid #f67280;
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: 30px;
 }
 
-.fill,
-.fill-3,
-#fill-2 {
-    display: grid;
-    gap: 30px;
-    padding: 30px;
+.heading-form {
+    background: linear-gradient(135deg, #283655, #4d648d);
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin: 0;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
 }
 
 .fill {
+    display: grid;
+    gap: 20px;
     grid-template-columns: repeat(3, 1fr);
 }
 
-#fill-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.fill-3 {
-    grid-template-columns: repeat(1, 1fr);
-}
-
-.box,
-.box-2,
-.box-3 {
+.box {
     display: flex;
     flex-direction: column;
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
 .box1 {
-    padding: 12px 15px;
-    font-size: 16px;
-    border: 1px solid #ddd;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border 0.3s, box-shadow 0.3s;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
 }
 
 .box1:focus {
     border-color: #4d648d;
-    outline: none;
-    box-shadow: 0 0 8px rgba(77, 100, 141, 0.3);
+    box-shadow: 0 0 8px rgba(77, 100, 141, 0.2);
 }
 
-button {
+.add-button {
+    padding: 10px 18px;
+    margin: 0;
+    background-color: #283655;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background .2s;
+}
+
+.add-button:hover {
+    background-color: #3f4f8f;
+}
+
+button.primary {
     padding: 14px 30px;
-    margin: 30px auto;
-    display: block;
-    background: linear-gradient(to right, #283655, #4d648d);
-    color: white;
-    font-size: 18px;
+    background: linear-gradient(135deg, #283655, #4d648d);
+    color: #fff;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    font-size: 18px;
+    margin: 30px auto 0;
+    display: block;
+    transition: transform .2s, filter .2s;
 }
 
-button:hover {
-    background: #f67280;
+button.primary:hover {
+    filter: brightness(1.05);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .hidden {
     display: none;
 }
 
-/* resume css */
+.entry {
+    position: relative;
+    border: 1px solid #e2e8f0;
+    padding: 15px 15px 20px;
+    border-radius: 8px;
+    background: #fafafa;
+    margin-bottom: 16px;
+    display: grid;
+    gap: 12px;
+}
+
+.entry-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.entry-grid-row {
+    margin-top: 6px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
 
 #resume-section1 {
     padding: 40px 20px;
     background-color: #f9f9f9;
+    max-width: 1050px;
+    margin: 40px auto;
+    border-radius: 10px;
 }
 
 .main {
     display: flex;
-    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
 
 .main-green {
     background-color: teal;
-    width: 25%;
-    padding: 30px;
-    /* color: white; */
-    text-align: center;
-}
-
-.main-green p {
     color: white;
-}
-
-.main-white {
-    width: 75%;
-    padding: 30px;
+    flex: 1 1 250px;
+    padding: 25px;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .main-green img {
-    height: 180px;
-    width: 180px;
+    height: 160px;
+    width: 160px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+    border: 2px solid white;
+}
+
+.main-white {
+    flex: 2 1 600px;
+    padding: 28px 30px;
+    min-width: 300px;
 }
 
 #resume-name {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
 }
 
 #resume-designation {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin: 4px 0 12px;
+    opacity: .9;
 }
-
-/* .heading {
-    font-size: 20px;
-    color: #4d648d;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-weight: bold;
-} */
 
 .heading {
-    font-size: 23px;
-    font-weight: bold;
-    background-color: rgba(0, 128, 128, 0.114)
-
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgba(0, 128, 128, 0.114);
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-top: 18px;
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
-h3 {
-    color: rgb(67, 66, 66);
-    font-weight: bold;
-    /* font-size: 15px; */
-    /* background-color: rgba(145, 145, 145, 0.381); */
+p {
+    margin: 4px 0;
+    line-height: 1.3;
 }
 
-h4 {
-    color: grey;
-    font-weight: lighter;
-    font-size: 18px;
+.skill-pill {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin: 4px 4px 4px 0;
+    font-size: 13px;
 }
 
-@media (max-width: 768px) {
+.section-item {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+    .fill {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .main {
         flex-direction: column;
     }
@@ -208,12 +242,104 @@ h4 {
     .main-white {
         width: 100%;
     }
+}
+
+@media (max-width: 00px) {
+    #form-section {
+        margin: 20px auto;
+        padding: 20px 20px 30px;
+    }
 
     .fill {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    #fill-2 {
-        grid-template-columns: 1fr;
+    .heading-form {
+        font-size: 20px;
     }
+
+    button.primary {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    #resume-section1 {
+        padding: 20px 10px;
+    }
+}
+
+@media print {
+  #edit-button,
+  #download-button {
+    display: none !important;
+  }
+
+  #form-section {
+    display: none !important;
+  }
+
+  #resume-section1 {
+    background: white !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main {
+    box-shadow: none;
+    flex-direction: row !important;
+  }
+  
+  .main-green {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: teal !important;
+    color: white !important;
+    flex-basis: 33%;
+  }
+
+  .main-white {
+    flex-basis: 67%;
+  }
+  
+  .skill-pill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .heading {
+    background-color: rgba(0, 128, 128, 0.114) !important;
+     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .main-green, .main-white, .section-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* UPDATED: Final helper class for perfect PDF scaling */
+.pdf-export-layout {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important; /* Remove gap to prevent overflow */
+}
+
+.pdf-export-layout .main-green,
+.pdf-export-layout .main-white {
+    /* Restore original padding that the gap was providing */
+    padding: 25px !important; 
+}
+
+.pdf-export-layout .main-green {
+  flex: 1 0 33% !important;
+  width: 33% !important;
+}
+
+.pdf-export-layout .main-white {
+  flex: 1 0 67% !important;
+  width: 67% !important;
 }
