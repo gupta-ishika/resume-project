@@ -5,97 +5,142 @@
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* html, body { */
-  /* height: 100%; */
-  /* background-color: #f4f7fa; */
-  /* color: #1a1a1a; */
-  /* scroll-behavior: smooth; */
-/* } */
+body {
+  /* Using the darkest brown for the background and a softer cream for text */
+  background: #C39898;
+  color: #F1E5D1;
+  scroll-behavior: smooth;
+}
 
 /* Navbar */
 .navbar {
-  background-color: #d0e1f9;
-  height: 90px;
+  /* Using a mid-tone brown for the navbar */
+  background-color: #664343;
+  color: #F1E5D1;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #795757; /* Subtle border with the accent brown */
 }
 
 .logo img {
-  width: 140px;
-  height: auto;
+  width: 120px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #DCD0C0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition:color 0.3s ease;
+}
+
+.nav-links a:hover {
+  /* Using the accent brown for hover effects */
+  color: #795757;
+  border-bottom: 2px solid #795757;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.signin-btn,
+.logout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-weight: 600;
 }
 
 .signin-btn {
-  background-color: #4d648d;
-  color: white;
-  font-size: 1.1rem;
-  padding: 13px 24px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  /* transition: background-color 0.3s ease; */
-  text-decoration: none;
-
-
+  /* Accent brown for the primary button */
+  background-color: #795757;
+  color: #DCD0C0;
 }
 
 .signin-btn:hover {
-  background-color: #283655;
+  /* Darker brown on hover */
+  background-color: #664343;
+}
+
+.logout-btn {
+  /* Darker brown for the secondary button */
+  background-color: #795757;
+  color: #DCD0C0;
+}
+
+.logout-btn:hover {
+  background-color: #664343;
 }
 
 /* Hero Section */
 .hero-section {
   text-align: center;
-  padding: 60px 20px;
-  background-color: white;
-  margin: auto;
+  padding: 80px 20px;
+  /* Matching the body background for a seamless look */
+  background-color: #FFF0D1;
+  /* color: #DCD0C0; */
 }
 
 .tagline {
   font-size: 18px;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
+  /* Accent brown for the tagline */
+  color: #795757;
   margin-bottom: 16px;
 }
 
 .headline {
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #795757;
 }
 
 .highlight-word {
-  color: #4d648d;
+  /* Using the accent brown for the highlighted word */
+  color: #3B3030;
 }
 
 .subtext {
-  font-size: 20px;
-  color: black;
-  max-width: 800px;
+  font-size: 18px;
+  color: #795757;
+  max-width: 700px;
   margin: 0 auto 30px auto;
   line-height: 1.6;
 }
 
 .cta-button {
   display: inline-block;
-  background-color: #4d648d;
-  color: white;
+  /* Accent brown for the main call-to-action */
+  background-color: #795757;
+  color: #DCD0C0;
   font-size: 18px;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;
-  text-decoration: none; 
-  /* a tag ki wajah se iske neche underline aa raha tha text decoration se*/
+  text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 8px 20px rgba(62, 100, 255, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
-  background-color: #283655;
+  /* Darker brown on hover */
+  background-color: #664343;
   transform: translateY(-2px);
 }
 
@@ -103,17 +148,24 @@
 .main {
   display: flex;
   justify-content: space-between;
-  /* align-items: stretch; */
-  padding: 40px 7vw;
-  background-color: #d0e1f9;
-  /* flex-wrap: wrap; */
+  padding: 60px 7vw;
+  /* Using the darker brown for this section */
+  background-color: #664343;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .main-box {
   padding: 20px;
   width: 30%;
+  min-width: 250px;
   text-align: center;
+  /* Darkest brown for the feature boxes to make them pop */
+  background-color: #3B3030;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #DCD0C0;
+  border: 1px solid #795757;
 }
 
 .main-box img {
@@ -126,25 +178,51 @@
 .main-box h3 {
   font-size: 22px;
   margin-bottom: 8px;
+  color: #DCD0C0;
 }
 
 .main-box h4 {
   font-size: 17px;
   font-weight: 400;
-  color: #555;
+  /* Accent brown for subheadings */
+  color: #DCD0C0;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .main-box {
-    width: 45%;
-  }
-
-  .headline {
-    font-size: 38px;
-  }
+/* Info Sections */
+.info-section {
+  padding: 60px 40px;
+  /* Matching the hero section background */
+  background-color: #3B3030;
+  text-align: center;
+  color: #DCD0C0;
 }
 
+.info-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #795757; /* Accent brown for headings */
+}
+
+.info-section p {
+  font-size: 18px;
+  color: #DCD0C0;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  /* Darker brown for the footer */
+  background-color: #664343;
+  color: #795757;
+  font-size: 14px;
+  border-top: 1px solid #3B3030;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .main {
     flex-direction: column;
@@ -155,16 +233,15 @@
     width: 100%;
   }
 
-  .cta-button {
-    font-size: 16px;
-    padding: 12px 20px;
-  }
-
   .headline {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .subtext {
     font-size: 16px;
+  }
+
+  .nav-links {
+    display: none;
   }
 }

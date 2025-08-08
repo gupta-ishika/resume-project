@@ -6,7 +6,7 @@ $message = '';
 
 // Check if a user is already logged in, if so, redirect them to the resume builder
 if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    header("Location: main.php");
     exit();
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user_name'] = $user['fullName'];
                 
                 // Redirect to the main resume builder page
-                header("Location: index.php");
+                header("Location: main.php");
                 exit();
             } else {
                 $message = "Invalid email or password.";

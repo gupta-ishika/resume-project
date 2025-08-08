@@ -1,11 +1,4 @@
-// UTILS
-function formatDate(dateStr) {
-    if (!dateStr) return '';
-    const [year, month, day] = dateStr.split('-');
-    return `${day}/${month}/${year}`;
-}
-
-//changes
+// Helper function to create new form entries with a remove button
 function createEntry(innerHTML) {
     const wrapper = document.createElement('div');
     wrapper.className = 'entry';
@@ -22,7 +15,7 @@ function createEntry(innerHTML) {
     return wrapper;
 }
 
-// ADDERS
+// Functions to add new input fields for each section
 function addAchievement() {
     const html = `
         <div class="box">
@@ -33,8 +26,7 @@ function addAchievement() {
           <label>Description</label>
           <input type="text" name="ach_desc[]" class="box1 ach-desc" placeholder="Achievement Description">
         </div>`;
-    const entry = createEntry(html);
-    document.getElementById('achievements-container').appendChild(entry);
+    document.getElementById('achievements-container').appendChild(createEntry(html));
 }
 
 function addExperience() {
@@ -67,8 +59,7 @@ function addExperience() {
           <label>Description</label>
           <input type="text" name="exp_desc[]" class="box1 exp-desc" placeholder="Responsibilities">
         </div>`;
-    const entry = createEntry(html);
-    document.getElementById('experience-container').appendChild(entry);
+    document.getElementById('experience-container').appendChild(createEntry(html));
 }
 
 function addEducation() {
@@ -101,8 +92,7 @@ function addEducation() {
           <label>Description</label>
           <input type="text" name="edu_desc[]" class="box1 edu-desc" placeholder="Details">
         </div>`;
-    const entry = createEntry(html);
-    document.getElementById('education-container').appendChild(entry);
+    document.getElementById('education-container').appendChild(createEntry(html));
 }
 
 function addSkills() {
@@ -111,52 +101,10 @@ function addSkills() {
           <label>Skill</label>
           <input type="text" name="skills[]" class="box1 skill-input" placeholder="e.g., JavaScript">
         </div>`;
-    const entry = createEntry(html);
-    document.getElementById('skills-container').appendChild(entry);
+    document.getElementById('skills-container').appendChild(createEntry(html));
 }
 
-// GENERATE RESUME
-
-function goBack() {
-    document.getElementById('resume-section1').classList.add('hidden');
-    document.getElementById('form-section').classList.remove('hidden');
-}
-
-// UPDATED downloadPDF function
-function downloadPDF() {
-    const resumeElement = document.querySelector('.main');
-    const firstName = document.getElementById('first-name').value.trim() || 'Resume';
-    const lastName = document.getElementById('last-name').value.trim();
-    const fileName = `${firstName}_${lastName}.pdf`.replace(/_$/, '');
-
-    const opt = {
-      // margin:       0.04, // Margin in inches
-      filename:     fileName,
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2, useCORS: true },
-      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-
-    // Store original styles to reset them later
-    const originalStyle = resumeElement.style.cssText;
-    
-    // Temporarily apply styles for 1:1 scaling.
-    // This width in pixels corresponds to the A4 content area.
-    resumeElement.style.width = '794px';
-    // resumeElement.style.width = '1123px';
-    resumeElement.classList.add('pdf-export-layout');
-
-    // Add a brief delay to ensure the DOM updates before the PDF is created
-    setTimeout(() => {
-        html2pdf().from(resumeElement).set(opt).save().then(() => {
-          // Reset styles after download is complete
-          resumeElement.style.cssText = originalStyle;
-          resumeElement.classList.remove('pdf-export-layout');
-        });
-    }, 10); // 10 millisecond delay
-}
-
-
+// Add one of each field when the page first loads for a better user experience
 document.addEventListener('DOMContentLoaded', () => {
     addAchievement();
     addExperience();

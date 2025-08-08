@@ -1,0 +1,191 @@
+/* ourteam.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+  /* Flexbox layout to enable sticky footer */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Theme colors from your selection */
+  background: #3B3030;
+  color: #BCAE9F;
+  scroll-behavior: smooth;
+}
+
+/* This content wrapper will grow to push the footer down */
+.content-wrapper {
+    flex: 1 0 auto;
+}
+
+/* Navbar - Styles for consistency across pages */
+.navbar {
+  background-color: #664343;
+  color: #DCD0C0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #795757;
+}
+
+.logo img {
+  width: 120px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #DCD0C0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition:color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #795757;
+  border-bottom: 2px solid #795757;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.signin-btn,
+.logout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.signin-btn {
+  background-color: #795757;
+  color: #DCD0C0;
+}
+
+.signin-btn:hover {
+  background-color: #664343;
+}
+
+.logout-btn {
+  background-color: #795757;
+  color: #DCD0C0;
+}
+
+.logout-btn:hover {
+  background-color: #664343;
+}
+
+/* Team Page Specific Styles */
+.team-header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #FFF0D1;
+    color: #795757;
+}
+
+.team-header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.team-header p {
+    font-size: 18px;
+    color: #795757;
+}
+
+.team-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 5vw;
+    background-color: #664343;
+}
+
+.team-card {
+  background-color: #3B3030;
+    width: 400px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #795757;
+}
+
+.team-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid #795757;
+}
+
+.team-card h2 {
+    font-size: 1.5rem;
+    color: #FFF0D1;
+    margin-bottom: 8px;
+}
+
+.team-card .role {
+    font-size: 1rem;
+    color: #795757;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-card p {
+    font-size: 0.95rem;
+    color: #BCAE9F;
+    line-height: 1.6;
+}
+
+.team-card a {
+    color: #FFF0D1;
+    text-decoration: none;
+}
+
+.team-card a:hover {
+    text-decoration: underline;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #664343;
+  color: #795757;
+  font-size: 14px;
+  border-top: 1px solid #3B3030;
+  /* This prevents the footer from shrinking */
+  flex-shrink: 0;
+}

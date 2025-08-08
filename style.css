@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f5f7fa;
+    background-color: #FFF0D1;
     margin: 0;
     padding: 0;
 }
@@ -28,7 +28,7 @@ body {
 }
 
 .heading-form {
-    background: linear-gradient(135deg, #283655, #4d648d);
+    background: linear-gradient(135deg, #3B3030, #664343);
     color: white;
     font-size: 22px;
     font-weight: 600;
@@ -74,7 +74,7 @@ label {
 .add-button {
     padding: 10px 18px;
     margin: 0;
-    background-color: #283655;
+    background-color: #664343;
     color: #fff;
     border: none;
     border-radius: 25px;
@@ -84,12 +84,12 @@ label {
 }
 
 .add-button:hover {
-    background-color: #3f4f8f;
+    background-color: #795757;
 }
 
 button.primary {
     padding: 14px 30px;
-    background: linear-gradient(135deg, #283655, #4d648d);
+    background: linear-gradient(135deg, #3B3030, #664343);
     color: #fff;
     border: none;
     border-radius: 30px;

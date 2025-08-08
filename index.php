@@ -17,6 +17,13 @@ if (!isset($_SESSION['user_id'])) {
 // Include your database connection file once.
 include_once 'db_connect.php';
 
+// Add this helper function at the top of your index.php
+function formatDateForPreview($dateStr) {
+    if (empty($dateStr)) return '';
+    $date = date_create($dateStr);
+    return date_format($date, 'M d, Y'); // e.g., "Aug 25, 2025"
+}
+
 // This variable will hold the final resume HTML. It's empty until the form is submitted.
 $resumePreviewHtml = '';
 
@@ -109,18 +116,16 @@ if (isset($_POST['create_resume'])) {
         }
     }
 
-    // --- D. BUILD THE HTML PREVIEW FOR THE USER (Corrected Version) ---
+    // --- D. BUILD THE HTML PREVIEW FOR THE USER (Corrected and Complete Version) ---
 $resumePreviewHtml = "
 <div id='resume-section1'>
     <div class='main'>
         <div class='main-green'>";
 
-// First, check for the photo and add the <img> tag if it exists
 if (!empty($photoPath)) {
     $resumePreviewHtml .= "<img src='{$photoPath}' alt='Profile Photo' style='width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;'>";
 }
 
-// Now, add the rest of the HTML content
 $resumePreviewHtml .= "
             <p id='resume-name'>{$firstName} {$middleName} {$lastName}</p>
             <p id='resume-designation'>{$designation}</p>
@@ -130,16 +135,63 @@ $resumePreviewHtml .= "
             <p id='resume-address'>{$address}</p>
             <p id='resume-summary'>{$summary}</p>
             <div class='heading'>SKILLS</div>
-            <div id='resume-skills-list'>";
+            <div id='resume-skills-list' style='text-align:center;'>";
 if (!empty($_POST['skills'])) { foreach ($_POST['skills'] as $skill) { if (!empty($skill)) { $resumePreviewHtml .= "<span class='skill-pill'>{$skill}</span>"; } } }
 $resumePreviewHtml .= "</div></div><div class='main-white'>";
-$resumePreviewHtml .= "<div class='heading'>ACHIEVEMENTS</div>";
-if (!empty($_POST['ach_title'])) { foreach ($_POST['ach_title'] as $key => $title) { if(!empty($title)) { $resumePreviewHtml .= "<div class='section-item'><div><strong>{$title}</strong></div><div>{$_POST['ach_desc'][$key]}</div></div>"; } } }
-$resumePreviewHtml .= "<div class='heading'>EDUCATION</div>";
-if (!empty($_POST['edu_school'])) { foreach ($_POST['edu_school'] as $key => $school) { if(!empty($school)) { $resumePreviewHtml .= "<div class='section-item'><div><strong>{$school}, {$_POST['edu_city'][$key]}</strong></div><div>{$_POST['edu_degree'][$key]}</div></div>"; } } }
-$resumePreviewHtml .= "<div class='heading'>EXPERIENCE</div>";
-if (!empty($_POST['exp_title'])) { foreach ($_POST['exp_title'] as $key => $title) { if(!empty($title)) { $resumePreviewHtml .= "<div class='section-item'><div><strong>{$title}</strong></div><div>{$_POST['exp_company'][$key]}</div></div>"; } } }
-$resumePreviewHtml .= "</div></div>";
+
+// Achievements Loop (This was already mostly correct)
+$resumePreviewHtml .= "<div class='heading'>ACHIEVEMENTS</div><div id='resume-achievements-list'>";
+if (!empty($_POST['ach_title'])) { 
+    foreach ($_POST['ach_title'] as $key => $title) { 
+        if(!empty($title)) { 
+            $description = htmlspecialchars($_POST['ach_desc'][$key] ?? '');
+            $resumePreviewHtml .= "<div class='section-item'><div><strong>{$title}</strong></div><div>{$description}</div></div>"; 
+        } 
+    } 
+}
+$resumePreviewHtml .= "</div>";
+
+// Education Loop (MODIFIED to include all fields)
+$resumePreviewHtml .= "<div class='heading'>EDUCATION</div><div id='resume-education-list'>";
+if (!empty($_POST['edu_school'])) { 
+    foreach ($_POST['edu_school'] as $key => $school) { 
+        if(!empty($school)) {
+            $city = htmlspecialchars($_POST['edu_city'][$key] ?? '');
+            $degree = htmlspecialchars($_POST['edu_degree'][$key] ?? '');
+            $startDate = formatDateForPreview($_POST['edu_start'][$key] ?? '');
+            $endDate = formatDateForPreview($_POST['edu_end'][$key] ?? 'Present');
+            $description = htmlspecialchars($_POST['edu_desc'][$key] ?? '');
+
+            $resumePreviewHtml .= "<div class='section-item'>
+                <div style='display: flex; justify-content: space-between;'><strong>{$degree}</strong> <span>{$startDate} - {$endDate}</span></div>
+                <div>{$school}, {$city}</div>
+                <div style='font-size: 0.9em; color: #555;'>{$description}</div>
+            </div>";
+        } 
+    } 
+}
+$resumePreviewHtml .= "</div>";
+
+// Experience Loop (MODIFIED to include all fields)
+$resumePreviewHtml .= "<div class='heading'>EXPERIENCE</div><div id='resume-experience-list'>";
+if (!empty($_POST['exp_title'])) { 
+    foreach ($_POST['exp_title'] as $key => $title) { 
+        if(!empty($title)) {
+            $company = htmlspecialchars($_POST['exp_company'][$key] ?? '');
+            $location = htmlspecialchars($_POST['exp_location'][$key] ?? '');
+            $startDate = formatDateForPreview($_POST['exp_start'][$key] ?? '');
+            $endDate = formatDateForPreview($_POST['exp_end'][$key] ?? 'Present');
+            $description = htmlspecialchars($_POST['exp_desc'][$key] ?? '');
+
+            $resumePreviewHtml .= "<div class='section-item'>
+                <div style='display: flex; justify-content: space-between;'><strong>{$title}</strong> <span>{$startDate} - {$endDate}</span></div>
+                <div>{$company} | {$location}</div>
+                <div style='font-size: 0.9em; color: #555; padding-left: 10px; border-left: 2px solid #eee; margin-top: 5px;'>{$description}</div>
+            </div>";
+        } 
+    } 
+}
+$resumePreviewHtml .= "</div></div></div>"; // Closes main-white and main
 $resumePreviewHtml .= "<div style='display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; justify-content:center;'><button class='primary' onclick='window.print()'>Download/Print</button></div></div>";
 
     // This CSS hides the original form, so the user only sees their final resume
